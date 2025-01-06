@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Display</title>
+</head>
+<body>
+    <h1>Data from Tables</h1>
+
+    <h2>Customers</h2>
+    <table border="1">
+        <tr>
+            <th>Customer ID</th>
+            <th>Is New Customer</th>
+        </tr>
+        {% for row in customers %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Technology</h2>
+    <table border="1">
+        <tr>
+            <th>Technology ID</th>
+            <th>Technology Type</th>
+        </tr>
+        {% for row in technology %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Services</h2>
+    <table border="1">
+        <tr>
+            <th>Service ID</th>
+            <th>Service Type</th>
+        </tr>
+        {% for row in services %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Orders</h2>
+    <table border="1">
+        <tr>
+            <th>Order ID</th>
+            <th>Customer ID</th>
+            <th>Service ID</th>
+            <th>Technology ID</th>
+            <th>Order Date</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Order Status</th>
+            <th>Contract Type</th>
+            <th>Price per Month</th>
+            <th>Installation Fee</th>
+        </tr>
+        {% for row in orders %}
+        <tr>
+            {% for item in row %}
+            <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Contracts</h2>
+    <table border="1">
+        <tr>
+            <th>Contract ID</th>
+            <th>Order ID</th>
+            <th>Contract Type</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+        {% for row in contracts %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
