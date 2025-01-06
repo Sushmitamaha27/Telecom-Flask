@@ -1,0 +1,36 @@
+Table Customers {
+  customer_id INT [pk]
+  is_new_customer BOOLEAN
+}
+
+Table Technology {
+  technology_id INT [pk]
+  technology_type VARCHAR(50)
+}
+
+Table Services {
+  service_id INT [pk]
+  service_type VARCHAR(50)
+}
+
+Table Orders {
+  order_id INT [pk]
+  customer_id INT [ref: > Customers.customer_id]
+  service_id INT [ref: > Services.service_id]
+  technology_id INT [ref: > Technology.technology_id]
+  order_date DATE
+  start_date DATE
+  end_date DATE [null]
+  order_status VARCHAR(20)
+  contract_type VARCHAR(20)
+  price_per_month DECIMAL(10, 2)
+  installation_fee DECIMAL(10, 2)
+}
+
+Table Contracts {
+  contract_id INT [pk, increment]
+  order_id INT [ref: > Orders.order_id]
+  contract_type VARCHAR(20)
+  start_date DATE
+  end_date DATE [null]
+}
